@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package _s
+ * @package Git4WPD
  */
 
 /**
@@ -11,22 +11,22 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function _s_body_classes( $classes ) {
+function Git4WPD_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
-	if ( ! is_singular() ) {
+	if ( ! isGit4WPDingular() ) {
 		$classes[] = 'hfeed';
 	}
 
 	return $classes;
 }
-add_filter( 'body_class', '_s_body_classes' );
+add_filter( 'body_class', 'Git4WPD_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function _s_pingback_header() {
-	if ( is_singular() && pings_open() ) {
+function Git4WPD_pingback_header() {
+	if ( isGit4WPDingular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', '_s_pingback_header' );
+add_action( 'wp_head', 'Git4WPD_pingback_header' );

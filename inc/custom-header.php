@@ -8,40 +8,40 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package _s
+ * @package Git4WPD
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses _s_header_style()
+ * @uses Git4WPD_headerGit4WPDtyle()
  */
-function _s_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( '_s_custom_header_args', array(
+function Git4WPD_custom_headerGit4WPDetup() {
+	add_themeGit4WPDupport( 'custom-header', apply_filters( 'Git4WPD_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => '_s_header_style',
+		'wp-head-callback'       => 'Git4WPD_headerGit4WPDtyle',
 	) ) );
 }
-add_action( 'after_setup_theme', '_s_custom_header_setup' );
+add_action( 'afterGit4WPDetup_theme', 'Git4WPD_custom_headerGit4WPDetup' );
 
-if ( ! function_exists( '_s_header_style' ) ) :
+if ( ! function_exists( 'Git4WPD_headerGit4WPDtyle' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see _s_custom_header_setup().
+	 * @see Git4WPD_custom_headerGit4WPDetup().
 	 */
-	function _s_header_style() {
+	function Git4WPD_headerGit4WPDtyle() {
 		$header_text_color = get_header_textcolor();
 
 		/*
 		 * If no custom options for text are set, let's bail.
-		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_theme_support( 'custom-header' ).
+		 * get_header_textcolor() options: Any hex value, 'blank' to hide text. Default: add_themeGit4WPDupport( 'custom-header' ).
 		 */
-		if ( get_theme_support( 'custom-header', 'default-text-color' ) === $header_text_color ) {
+		if ( get_themeGit4WPDupport( 'custom-header', 'default-text-color' ) === $header_text_color ) {
 			return;
 		}
 

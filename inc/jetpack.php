@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package _s
+ * @package Git4WPD
  */
 
 /**
@@ -14,21 +14,21 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function _s_jetpack_setup() {
+function Git4WPD_jetpackGit4WPDetup() {
 	// Add theme support for Infinite Scroll.
-	add_theme_support( 'infinite-scroll', array(
+	add_themeGit4WPDupport( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => '_s_infinite_scroll_render',
+		'render'    => 'Git4WPD_infiniteGit4WPDcroll_render',
 		'footer'    => 'page',
 	) );
 
 	// Add theme support for Responsive Videos.
-	add_theme_support( 'jetpack-responsive-videos' );
+	add_themeGit4WPDupport( 'jetpack-responsive-videos' );
 
 	// Add theme support for Content Options.
-	add_theme_support( 'jetpack-content-options', array(
+	add_themeGit4WPDupport( 'jetpack-content-options', array(
 		'post-details'    => array(
-			'stylesheet' => '_s-style',
+			'stylesheet' => 'Git4WPD-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
@@ -42,15 +42,15 @@ function _s_jetpack_setup() {
 		),
 	) );
 }
-add_action( 'after_setup_theme', '_s_jetpack_setup' );
+add_action( 'afterGit4WPDetup_theme', 'Git4WPD_jetpackGit4WPDetup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function _s_infinite_scroll_render() {
+function Git4WPD_infiniteGit4WPDcroll_render() {
 	while ( have_posts() ) {
 		the_post();
-		if ( is_search() ) :
+		if ( isGit4WPDearch() ) :
 			get_template_part( 'template-parts/content', 'search' );
 		else :
 			get_template_part( 'template-parts/content', get_post_format() );
